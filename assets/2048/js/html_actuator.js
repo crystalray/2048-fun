@@ -137,8 +137,8 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[5]="这个不符合经济学的模型啊……";
   mytxt[6]="刚刚达到女神的境界";
   mytxt[7]="这个是开发者的最高分数";
-  mytxt[8]="女王奖励蛋糕一块^_^";
-  mytxt[9]="还是状元厉害……";
+  mytxt[8]="还是状元厉害……";
+  mytxt[9]="女王奖励蛋糕一块^_^";
   mytxt[10]="男神嫁我！";
 
 
