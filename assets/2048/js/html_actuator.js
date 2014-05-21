@@ -1,4 +1,4 @@
-function HTMLActuator() {
+﻿function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
@@ -62,7 +62,10 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  var text = ["","怡","韵","书","艺","龙","贤","蓓","锐","莫","魏","驰","神","经","病",""];
+  var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
+  inner.textContent = text[text2(tile.value)];
+  //inner.textContent = tile.value;
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -125,8 +128,26 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
+  var mytxt=new Array(11);
+  mytxt[0]="老想着师弟肯定会输啊！";
+  mytxt[1]="快找智商200的余老师求助~";
+  mytxt[2]="你有权保持沉默";
+  mytxt[3]="哈哈，揪心吧";
+  mytxt[4]="所以说不要想腹肌了";
+  mytxt[5]="这个不符合经济学的模型啊……";
+  mytxt[6]="刚刚达到女神的境界";
+  mytxt[7]="这个是开发者的最高分数";
+  mytxt[8]="女王奖励蛋糕一块^_^";
+  mytxt[9]="还是状元厉害……";
+  mytxt[10]="男神嫁我！";
+
+
+  var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "通关奖励：午夜厨房系列讲座光盘" : mytxt[text3(maxscore)-1];
+
+  //var type    = won ? "game-won" : "game-over";
+  //var message = won ? "You win!" : "Game over!";
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
