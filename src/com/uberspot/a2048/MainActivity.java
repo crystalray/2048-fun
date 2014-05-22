@@ -71,13 +71,13 @@ public class MainActivity extends Activity {
 		// Load webview with game
 		mWebView = (WebView) findViewById(R.id.mainWebView);
 		WebSettings settings = mWebView.getSettings();
-//		String packageName = getPackageName();
+		String packageName = getPackageName();
 		settings.setJavaScriptEnabled(true);
 		settings.setDomStorageEnabled(true);
 		settings.setDatabaseEnabled(true);
 		settings.setDefaultTextEncodingName("Utf-8");
-//		settings.setRenderPriority(RenderPriority.HIGH);
-//		settings.setDatabasePath("/data/data/" + packageName + "/databases");
+		settings.setRenderPriority(RenderPriority.HIGH);
+		settings.setDatabasePath("/data/data/" + packageName + "/databases");
 
 		// If there is a previous instance restore it in the webview
 		if (savedInstanceState != null) {
